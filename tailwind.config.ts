@@ -15,7 +15,7 @@ const config: Config = {
         secondary: '#F2C641',
         tertiary: {
           dark: '#F27405',
-          light: '#192bc2',
+          light: '#0E4C92',
         },
       },
       fontFamily: {

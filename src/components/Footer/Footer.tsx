@@ -5,12 +5,12 @@ import { BsFillSendFill, BsTelephoneOutbound } from 'react-icons/bs';
 const Footer = () => {
   return (
     <footer className="mt-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-2">
             <Link href='/' className='font-black text-tertiary-light'>
-                Hotel
+                NgongHotel
             </Link>
-            <h4 className='font-semibold text-[40px] py-6'>Contact</h4>
-            <div className='flex flex-wrap gap-16 items-center justify-between'>
+            <h4 className='font-semibold text-[40px] py-6 text-slate-700'>Contact</h4>
+            <div className='flex flex-wrap gap-16 items-center justify-between text-slate-500'>
                 <div className='flex-1'>
                     <p>Ngong Road</p>
                     <div className='flex items-center py-4'>
