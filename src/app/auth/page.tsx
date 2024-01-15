@@ -1,4 +1,5 @@
 import { AiFillFacebook } from "react-icons/ai"
+import { FcGoogle } from "react-icons/fc"
 
 
 const Auth = () => {
@@ -13,7 +14,8 @@ const Auth = () => {
                     OR
                 </p>
                 <span className="inline-flex items-center">
-                    <AiFillFacebook className="mr-3 text-4xl cursor-pointer text-black dark:text-white"/>
+                    <AiFillFacebook className="mr-3 text-4xl cursor-pointer text-sky-700 dark:text-white"/>
+                    <FcGoogle className="ml-3 text-4xl cursor-pointer"/>
                 </span>
             </div>
         </div>
