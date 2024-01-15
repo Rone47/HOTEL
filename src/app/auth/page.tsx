@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc"
 
 
 const Auth = () => {
-    const inputStyles = 'border border-gray-200 sm:text-sm text:black rounded-lg block w-full p-2.5 focus:outline-none border-b-4 ';
+    const inputStyles = 'border border-gray-200 sm:text-sm text:black rounded-lg block w-full p-2.5 focus:outline-none  border-b-4 ';
   return (
     <section className="container mx-auto">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8 w-80 md:w-[70%] mx-auto">
@@ -11,7 +11,7 @@ const Auth = () => {
                 <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl">
                     Create an account
                 </h1>
-                <p className="font-semibold">
+                <p className="font-medium">
                     OR
                 </p>
                 <span className="inline-flex items-center">
@@ -29,7 +29,7 @@ const Auth = () => {
                  required
                  className={inputStyles}
                  />
-                      <input 
+                 <input 
                  type="text" 
                  name="name"
                  id="name"
@@ -46,8 +46,11 @@ const Auth = () => {
                  required
                  className={inputStyles}
                  />
-             
+             <button type="submit" className="w-full bg-green-700 focus:outline-none font-bold rounded-lg px-5 py-2.5 text-center text-xl">
+                Sign Up
+             </button>
             </form>
+            <button className="text-blue-700 font-bold  rounded-md">login</button>
         </div>
     </section> 
   )
