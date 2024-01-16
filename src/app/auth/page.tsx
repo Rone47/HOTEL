@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { AiFillFacebook } from "react-icons/ai"
 import { FcGoogle } from "react-icons/fc"
 
@@ -20,6 +20,18 @@ const Auth = () => {
         const {name, value} = event.target;
         setFormData({...formData, [name]: value});
     };
+    
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        try {
+            console.log(formData);
+        } catch (error) {
+            console.log(error);
+        }finally {
+            setFormData(defaultFormData);
+        }
+    }
 
   return (
     <section className="container mx-auto">
