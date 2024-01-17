@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'default',
   title: 'Hotel-Management',
 
-  projectId: 'wyk5uk62',
-  dataset: 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET as string,
   
   basePath: '/studio',
 
