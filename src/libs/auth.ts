@@ -2,7 +2,7 @@ import { NextAuthOptions } from "next-auth"
 import { SanityAdapter, SanityCredentials } from "next-auth-sanity";
 import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
-import sanityClient from "./sanity";
+import sanityClient from './sanity';
 
 export const authOptions: NextAuthOptions = {
     providers: [
