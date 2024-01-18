@@ -12,7 +12,8 @@ const defaultFormData = {
     email:'',
     name:'',
     password:'',
-}
+};
+
 
 const Auth = () => {
     const [formData, setFormData] = useState(defaultFormData);
@@ -23,6 +24,20 @@ const Auth = () => {
         const {name, value} = event.target;
         setFormData({...formData, [name]: value});
     };
+
+    const {data: session} = useSession();
+
+    console.log(session);
+
+    const loginHandler = async () => {
+        try {
+            await signIn();
+            //push the user to the home page
+        } catch (error) {
+            console.log(error);
+            toast.error('Something went wrong');
+        }
+    }
     
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -51,9 +66,13 @@ const Auth = () => {
                     OR
                 </p>
                 <span className="inline-flex items-center">
-                    <AiFillFacebook className="mr-3 text-4xl cursor-pointer text-sky-700 dark:text-white"/> 
+                    <AiFillFacebook
+                     onClick={loginHandler}
+                     className="mr-3 text-4xl cursor-pointer text-sky-700 dark:text-white"/> 
                     |
-                    <FcGoogle className="ml-3 text-4xl cursor-pointer"/>
+                    <FcGoogle 
+                     onClick={loginHandler}
+                     className="ml-3 text-4xl cursor-pointer"/>
                 </span>
             </div>
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
@@ -89,7 +108,7 @@ const Auth = () => {
                 Sign Up
              </button>
             </form>
-            <button className="text-blue-700 font-bold  rounded-md">login</button>
+            <button onClick={loginHandler} className="text-blue-700 font-bold  rounded-md">login</button>
         </div>
     </section> 
   )
