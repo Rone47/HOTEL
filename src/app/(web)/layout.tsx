@@ -5,6 +5,7 @@ import {Poppins } from 'next/font/google'
 import './globals.css'
 import ThemeProvider from '@/components/ThemeProvider/ThemeProvider';
 import { NextAuthProvider } from '@/components/AuthProvider/AuthProvider';
+import Toast from '@/components/Toast/Toast';
 
 const poppins = Poppins({ 
   subsets: ['latin'], 
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <NextAuthProvider>
         <ThemeProvider>
+          <Toast/>
           <main className='font-normal'>
             <Header/>
             {children}
