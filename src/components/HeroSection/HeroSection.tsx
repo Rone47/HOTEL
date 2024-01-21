@@ -1,4 +1,4 @@
-
+import Image from 'next/image';
 
 const HeroSection = () => {
   return (
@@ -10,11 +10,61 @@ const HeroSection = () => {
                Indulge in a superb hotel steeped in rich history and timeless elegance.
              </p>
              <button className="btn-primary">Get Started</button>
+
             {/*Rooms Description section*/}
+            <div className="flex justify-between mt-12">
+              <div className="flex gap-3 flex-col items-center justify-center">
+                <p className="text-xs lg:text-xl text-center">Basic Room</p>
+                <p className="md:font-bold font-medium text-lg xl:text-5xl">+ 20</p>
+              </div>
+
+              <div className="flex gap-3 flex-col items-center justify-center">
+                <p className="text-xs lg:text-xl text-center">Luxury Room</p>
+                <p className="md:font-bold font-medium text-lg xl:text-5xl">+ 20</p>
+              </div>
+
+              <div className="flex gap-3 flex-col items-center justify-center">
+                <p className="text-xs lg:text-xl text-center">Suite</p>
+                <p className="md:font-bold font-medium text-lg xl:text-5xl">+ 20</p>
+              </div>
+            </div>
+
             {/*Images*/}
+            <div className="md:grid hidden gap-8 grid-cols-1">
+              <div className="rounded-2xl overflow-hidden h-48">
+                 <Image 
+                   src='/images/hero-1.jpg'
+                   alt='hero-1' 
+                   width={300} 
+                   height={300} 
+                   className='img scale-animation'
+                   />
+              </div>
+
+              <div className='grid grid-cols-2 gap-8 h-48'>
+                <div className='rounded-2xl overflow-hidden'>
+                  <Image 
+                   src='/images/hero-2.jpg'
+                   alt='hero-2'
+                   width={300} 
+                   height={300} 
+                   className='img scale-animation'
+                   />
+                </div>
+                <div className='rounded-2xl overflow-hidden'>
+                  <Image 
+                   src='/images/hero-3.jpg'
+                   alt='hero-3'
+                   width={300} 
+                   height={300} 
+                   className='img scale-animation'
+                   />
+                </div>
+              </div>
+            </div>
         </div>
     </section>
   )
 }
 
-export default HeroSection
+export default HeroSection;
