@@ -1,4 +1,5 @@
 
+import Gallery from '@/components/Gallery/Gallary';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import PageSearch from '@/components/PageSearch/PageSearch';
 
@@ -10,6 +11,7 @@ const Home = async () => {
     <>
       <HeroSection />
       <PageSearch />
+      <Gallery/>
     </>
   );
 };
