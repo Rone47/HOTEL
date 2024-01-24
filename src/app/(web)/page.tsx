@@ -1,18 +1,17 @@
-import HeroSection from "@/components/HeroSection/HeroSection";
-import PageSearch from "@/components/PageSearch/PageSearch";
+
+import HeroSection from '@/components/HeroSection/HeroSection';
+import PageSearch from '@/components/PageSearch/PageSearch';
 
 
-const Home = () => {
+const Home = async () => {
+ 
+
   return (
     <>
-      <HeroSection/>
-      <PageSearch/>
-      {/*Featured Room*/}
-      {/*Gallery*/}
-      {/*News Letter*/}
+      <HeroSection />
+      <PageSearch />
     </>
-  )
-}
-
+  );
+};
 
 export default Home;

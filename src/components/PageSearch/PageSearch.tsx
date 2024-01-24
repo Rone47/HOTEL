@@ -1,9 +1,8 @@
-import React from 'react'
+
+import Search from '../Search/Search';
 
 const PageSearch = () => {
-  return (
-    <div>PageSearch</div>
-  )
-}
+  return <Search/> ;
+};
 
-export default PageSearch
+export default PageSearch;
