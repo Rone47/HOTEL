@@ -13,7 +13,7 @@ const FeaturedRoom: FC<Props> = props => {
     <section className='flex md:flex-row flex-col px-4 py-10 items-center gap-12 container'>
       <div className="md:grid gap-8 grid-cols-1">
         <div className='rounded-2xl overflow-hidden h-48 mb-4 md:mb-0'>
-        <Image
+         <Image
             src={featuredRoom.coverImage.url}
             alt={featuredRoom.name}
             width={300}
