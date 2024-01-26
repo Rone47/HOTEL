@@ -48,8 +48,8 @@ const FeaturedRoom: FC<Props> = props => {
         <div className='flex flex-col md:flex-row md:items-end justify-between mt-5'>
           <div className='flex mb-3 md:mb-0'>
             <div className='flex gap-3 flex-col items-center justify-center mr-4'>
-              <p className='text-xs lg:text-xl text-center'>Price</p>
-              <p className='md:font-bold flex font-medium text-sm xl:text-3xl'>
+              <p className='text-xs lg:text-xl text-center'>Start From</p>
+              <p className='md:font-bold flex font-medium text-lg xl:text-3xl'>
                 $ {featuredRoom.price}
               </p>
             </div>
@@ -63,7 +63,7 @@ const FeaturedRoom: FC<Props> = props => {
 
           <Link
             href={`/rooms/${featuredRoom.slug.current}`}
-            className='border h-fit text-center border-cyan-500 text-cyan-500 px-3 py-2 lg:py-5 lg:px-7 rounded-3xl font-bold lg:text-xl'
+            className='border h-fit text-center border-cyan-600 text-cyan-600 px-3 py-2 lg:py-5 lg:px-7 rounded-2xl font-bold lg:text-xl'
           >
             More Details
           </Link>
