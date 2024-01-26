@@ -1,24 +1,24 @@
 type CoverImage = {
     url: string;
-};
-
-export type Image = {
+  };
+  
+  export type Image = {
     _key: string;
     url: string;
-};
+  };
   
-type Amenity = {
+  type Amenity = {
     _key: string;
     amenity: string;
     icon: string;
-};
+  };
   
-type Slug = {
+  type Slug = {
     _type: string;
     current: string;
-};
+  };
   
-export type Room = {
+  export type Room = {
     _id: string;
     coverImage: CoverImage;
     description: string;
@@ -34,9 +34,9 @@ export type Room = {
     slug: Slug;
     specialNote: string;
     type: string;
-};
+  };
   
-export type CreateBookingDto = {
+  export type CreateBookingDto = {
     user: string;
     hotelRoom: string;
     checkinDate: string;
@@ -46,4 +46,4 @@ export type CreateBookingDto = {
     children: number;
     totalPrice: number;
     discount: number;
-};
+  };
