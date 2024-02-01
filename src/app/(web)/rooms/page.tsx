@@ -1,6 +1,7 @@
 'use client';
 
 import { getRooms } from "@/libs/apis";
+import { Room } from "@/models/room";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
@@ -27,6 +28,12 @@ const Rooms = () => {
     if (error) throw new Error ('Cannot fetch data');
     if (typeof data === 'undefined' && !isLoading)
      throw new Error('Cannot fetch data');
+
+     const filterRooms = (rooms: Room[]) => {
+      return rooms.filter(room => {
+        //apply room type
+      })
+     }
 
 
   return (
