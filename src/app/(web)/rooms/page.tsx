@@ -31,8 +31,8 @@ const Rooms = () => {
 
      const filterRooms = (rooms: Room[]) => {
       return rooms.filter(room => {
+        
         //apply room type filter
-
         if (
           roomTypeFilter && 
           roomTypeFilter.toLowerCase() !== 'all' && 
