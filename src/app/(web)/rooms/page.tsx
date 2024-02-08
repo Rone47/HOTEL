@@ -1,5 +1,6 @@
 'use client';
 
+import RoomCard from "@/components/RoomCard/RoomCard";
 import Search from "@/components/Search/Search";
 import { getRooms } from "@/libs/apis";
 import { Room } from "@/models/room";
@@ -67,7 +68,7 @@ const Rooms = () => {
 
       <div className="flex mt-20 justify-between flex-wrap">
         {filteredRooms.map(room => (
-          <></>
+          <RoomCard key={room._id} room={room}/>
         ))}
       </div>
     </div>
