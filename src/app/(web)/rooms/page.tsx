@@ -1,5 +1,6 @@
 'use client';
 
+import Search from "@/components/Search/Search";
 import { getRooms } from "@/libs/apis";
 import { Room } from "@/models/room";
 import { useSearchParams } from "next/navigation";
@@ -31,7 +32,7 @@ const Rooms = () => {
 
      const filterRooms = (rooms: Room[]) => {
       return rooms.filter(room => {
-        
+
         //apply room type filter
         if (
           roomTypeFilter && 
@@ -47,12 +48,29 @@ const Rooms = () => {
         ) {
           return false;
         }
-      })
-     }
+        return true;
+      });
+     };
+
+     const filteredRooms = filterRooms(data || []);
+     
 
 
   return (
-    <div>Rooms</div>
+    <div className="container mx-auto pt-10">
+      <Search 
+        roomTypeFilter={roomTypeFilter}
+        searchQuery={searchQuery}
+        setRoomTypeFilter={setRoomTypeFilter}
+        setSearchQuery={setSearchQuery} 
+      />
+
+      <div className="flex mt-20 justify-between flex-wrap">
+        {filteredRooms.map(room => (
+          <></>
+        ))}
+      </div>
+    </div>
   )
 }
 
