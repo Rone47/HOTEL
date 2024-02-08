@@ -31,7 +31,22 @@ const Rooms = () => {
 
      const filterRooms = (rooms: Room[]) => {
       return rooms.filter(room => {
-        //apply room type
+        //apply room type filter
+
+        if (
+          roomTypeFilter && 
+          roomTypeFilter.toLowerCase() !== 'all' && 
+          room.type.toLowerCase() !== roomTypeFilter.toLowerCase()
+          ) {
+            return false;
+          }
+        // Apply search query 
+        if(
+          searchQuery && 
+          ! room.name.toLowerCase(). includes(searchQuery.toLowerCase())
+        ) {
+          return false;
+        }
       })
      }
 
