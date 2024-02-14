@@ -1,6 +1,7 @@
 'use client';
 
 import {FC} from 'react';
+import DatePicker from 'react-datepicker';
 
 type Props = {
   price: number;
@@ -29,6 +30,14 @@ const BookRoomCta: FC<Props> = props => {
       <div className='w-full border-b-2 border-blue-300 my-2' />
 
       <h4 className='my-8'>{specialNote}</h4>
+
+      <div className='flex'>
+        <div className='w-1/2 pr-2'>
+          <label htmlFor="check-in-date" className='block text-sm font-medium text-gray-900 dark:text-gray-400'>
+            Check in date
+          </label>
+        </div>
+      </div>
     </div>
   )
 }
