@@ -1,4 +1,4 @@
-import { Room } from "@/models/room";
+import { CreateBookingDto, Room } from "@/models/room";
 import sanityClient from "./sanity";
 import * as queries from './sanityQueries';
 
@@ -29,4 +29,36 @@ export async function getRoom(slug: string) {
     );
   
     return result;
-  }
+  };
+  
+export const createBooking = async ({
+  adults,
+  checkinDate,
+  checkoutDate,
+  children,
+  discount,
+  hotelRoom,
+  numberOfDays,
+  totalPrice,
+  user,
+} : CreateBookingDto) => {
+  const mutation = { 
+    mutations: [
+      {
+        create: {
+          _type: 'booking',
+          user: { _type: 'reference', _ref: user },
+          hotelRoom: { _type: 'reference', _ref: hotelRoom },
+          checkinDate,
+          checkoutDate,
+          numberOfDays,
+          adults,
+          children,
+          totalPrice,
+          discount,
+        },
+      },
+    ],
+  };
+
+};
