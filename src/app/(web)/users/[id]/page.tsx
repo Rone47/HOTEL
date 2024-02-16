@@ -1,8 +1,11 @@
 'use client';
 
 import { getUserBookings } from '@/libs/apis';
+import { User } from '@/models/user';
 import axios from 'axios';
 import useSWR from 'swr';
+import Image from 'next/image';
+import LoadingSpinner from '../../loading';
 
 
 const UserDatails = (props: {params: {id: string}}) => {
@@ -12,7 +15,7 @@ const UserDatails = (props: {params: {id: string}}) => {
 
     const fetchUserBooking = async () => getUserBookings (userId);
     const fetchUserData = async () => {
-        const {data} = await axios.get('/api/users');
+        const {data} = await axios.get<User>('/api/users');
         return data;
     }
 
@@ -31,9 +34,29 @@ const {
      if (error || errorGettingUserData) throw new Error('Cannot fetch data');
      if (typeof userBookings === 'undefined' && !isLoading)
        throw new Error('Cannot fetch data');
+    if (typeof userData === 'undefined' && !loadingUserData)
+       throw new Error('Cannot fetch data');   
+
+       if(loadingUserData) return <LoadingSpinner/>;
+       if (!userData) return <LoadingSpinner/>;
+       
 
   return (
-    <div>UserDatails</div>
+    <div className='container mx-auto px-2 md:px-4 py-10'>
+        <div className='grid md:grid-cols-12 gap-10'>
+            <div className='hidden md:block md:col-span-4 lg:col-span-3 shadow-lg h-fit sticky top-10 bg-[#eff0f2] text-black rounded-lg px-6 py-4'>
+                <div className='md:w-[143px] w-28 h-28 md:h-[143px] mx-auto mb-5 rounded-full overflow-hidden'>
+                    <Image
+                      src={userData.image}
+                      alt={userData.name}
+                      width={143}
+                      height={143}
+                      className='img scale-animation rounded-full'
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
   )
 }
 
