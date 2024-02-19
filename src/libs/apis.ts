@@ -3,6 +3,7 @@ import { CreateBookingDto, Room } from "@/models/room";
 import sanityClient from "./sanity";
 import * as queries from './sanityQueries';
 import { Booking } from "@/models/booking";
+import { CreateReviewDto, UpdateReviewDto } from "@/models/review";
 
 export async function getFeaturedRoom() {
     const result = await sanityClient.fetch<Room>(
