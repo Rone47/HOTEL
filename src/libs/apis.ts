@@ -1,39 +1,41 @@
-import axios from "axios";
-import { CreateBookingDto, Room } from "@/models/room";
-import sanityClient from "./sanity";
+import { CreateReviewDto, Review } from './../models/review';
+import axios from 'axios';
+
+import { CreateBookingDto, Room } from '@/models/room';
+import sanityClient from './sanity';
 import * as queries from './sanityQueries';
-import { Booking } from "@/models/booking";
-import { CreateReviewDto, Review, UpdateReviewDto } from "@/models/review";
+import { Booking } from '@/models/booking';
+import { UpdateReviewDto } from '@/models/review';
 
 export async function getFeaturedRoom() {
-    const result = await sanityClient.fetch<Room>(
-      queries.getFeaturedRoomQuery,
-      {},
-      { cache: 'no-cache' }
-    );
-  
-    return result;
-  }
-  
-  export async function getRooms() {
-    const result = await sanityClient.fetch<Room[]>(
-      queries.getRoomsQuery,
-      {},
-      { cache: 'no-cache' }
-    );
-    return result;
-  }
+  const result = await sanityClient.fetch<Room>(
+    queries.getFeaturedRoomQuery,
+    {},
+    { cache: 'no-cache' }
+  );
+
+  return result;
+}
+
+export async function getRooms() {
+  const result = await sanityClient.fetch<Room[]>(
+    queries.getRoomsQuery,
+    {},
+    { cache: 'no-cache' }
+  );
+  return result;
+}
 
 export async function getRoom(slug: string) {
-    const result = await sanityClient.fetch<Room>(
-      queries.getRoom,
-      { slug },
-      { cache: 'no-cache' }
-    );
-  
-    return result;
-  };
-  
+  const result = await sanityClient.fetch<Room>(
+    queries.getRoom,
+    { slug },
+    { cache: 'no-cache' }
+  );
+
+  return result;
+}
+
 export const createBooking = async ({
   adults,
   checkinDate,
@@ -44,8 +46,8 @@ export const createBooking = async ({
   numberOfDays,
   totalPrice,
   user,
-} : CreateBookingDto) => {
-  const mutation = { 
+}: CreateBookingDto) => {
+  const mutation = {
     mutations: [
       {
         create: {
@@ -71,7 +73,6 @@ export const createBooking = async ({
   );
 
   return data;
-
 };
 
 export const updateHotelRoom = async (hotelRoomId: string) => {
@@ -107,7 +108,7 @@ export async function getUserBookings(userId: string) {
   );
 
   return result;
-};
+}
 
 export async function getUserData(userId: string) {
   const result = await sanityClient.fetch(
@@ -117,7 +118,7 @@ export async function getUserData(userId: string) {
   );
 
   return result;
-};
+}
 
 export async function checkReviewExists(
   userId: string,

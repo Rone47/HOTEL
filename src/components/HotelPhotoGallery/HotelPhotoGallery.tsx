@@ -2,6 +2,7 @@
 
 import { FC, useState } from 'react';
 import Image from 'next/image';
+
 import { Image as ImageType } from '@/models/room';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { MdCancel } from 'react-icons/md';
