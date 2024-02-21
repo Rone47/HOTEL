@@ -92,7 +92,7 @@ const Auth = () => {
           <input
             type='text'
             name='name'
-            placeholder='John Doe'
+            placeholder='James John'
             required
             className={inputStyles}
             value={formData.name}
@@ -111,13 +111,13 @@ const Auth = () => {
 
           <button
             type='submit'
-            className='w-full bg-tertiary-dark focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+            className='w-full bg-green-700 focus:outline-none font-bold rounded-lg text-sm px-5 py-2.5 text-center'
           >
             Sign Up
           </button>
         </form>
 
-        <button onClick={loginHandler} className='text-blue-700 underline'>
+        <button onClick={loginHandler} className='text-blue-700 underline font-bold'>
           login
         </button>
       </div>

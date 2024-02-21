@@ -60,14 +60,14 @@ const BookRoomCta: FC<Props> = props => {
           <span className='font-bold text-xl'>
             {' '}
             | discount {discount}%. Now{' '}
-            <span className='text-tertiary-dark'>$ {discountPrice}</span>
+            <span className='text-blue-500'>$ {discountPrice}</span>
           </span>
         ) : (
           ''
         )}
       </h3>
 
-      <div className='w-full border-b-2 border-b-secondary my-2' />
+      <div className='w-full border-b-2 border-cyan-500 my-2' />
 
       <h4 className='my-8'>{specialNote}</h4>
 
@@ -121,7 +121,7 @@ const BookRoomCta: FC<Props> = props => {
             value={adults}
             onChange={e => setAdults(+e.target.value)}
             min={1}
-            max={5}
+            max={7}
             className='w-full border border-gray-300 rounded-lg p-2.5'
           />
         </div>
@@ -138,14 +138,14 @@ const BookRoomCta: FC<Props> = props => {
             value={noOfChildren}
             onChange={e => setNoOfChildren(+e.target.value)}
             min={0}
-            max={3}
+            max={10}
             className='w-full border border-gray-300 rounded-lg p-2.5'
           />
         </div>
       </div>
 
       {calcNoOfDays() > 0 ? (
-        <p className='mt-3'>Total Price: $ {calcNoOfDays() * discountPrice}</p>
+        <p className='mt-3 font-semibold'>Total Price: $ {calcNoOfDays() * discountPrice}</p>
       ) : (
         <></>
       )}
