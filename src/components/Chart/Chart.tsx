@@ -41,8 +41,8 @@ const Chart: FC<{ userBookings: Booking[] }> = ({ userBookings }) => {
             label: 'Amount spent',
             data: amountSpent,
             borderWidth: 1,
-            backgroundColor: '#F27405',
-            hoverBackgroundColor: '#F2C641',
+            backgroundColor: '#0583f2',
+            hoverBackgroundColor: '#1505f2',
           },
         ],
       }}
