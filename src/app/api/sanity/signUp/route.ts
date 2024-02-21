@@ -1,5 +1,5 @@
+import { SanityClient } from '@sanity/client';
 import { signUpHandler } from 'next-auth-sanity';
-
 import sanityClient from '@/libs/sanity';
 
 // Example adjustment

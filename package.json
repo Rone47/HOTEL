@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/client": "^6.14.0",
     "@sanity/vision": "^3.17.0",
     "@stripe/stripe-js": "^2.1.7",
     "@types/node": "20.8.2",
