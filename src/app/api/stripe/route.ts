@@ -6,9 +6,8 @@ import { NextResponse } from 'next/server';
 import { getRoom } from '@/libs/apis';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: '2023-08-16', // Replace with the desired version
-})
-
+  apiVersion: null, // Allow null to use the latest version
+});
 
 type RequestData = {
   checkinDate: string;
@@ -56,7 +55,7 @@ export async function POST(req: Request, res: Response) {
     const discountPrice = room.price - (room.price / 100) * room.discount;
     const totalPrice = discountPrice * numberOfDays;
 
-    
+    // @ts-ignore
     const stripeSession = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items: [
@@ -92,7 +91,7 @@ export async function POST(req: Request, res: Response) {
       statusText: 'Payment session created',
     });
   } catch (error: any) {
-    console.log('Payment falied', error);
+    console.log('Payment failed', error);
     return new NextResponse(error, { status: 500 });
   }
 }
