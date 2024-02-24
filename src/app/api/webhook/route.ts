@@ -9,6 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2023-08-16',
 });
 
+
 export async function POST(req: Request, res: Response) {
   const reqBody = await req.text();
   const sig = req.headers.get('stripe-signature');
@@ -28,9 +29,8 @@ export async function POST(req: Request, res: Response) {
     case checkout_session_completed:
       const session = event.data.object;
 
-      const {
-        // @ts-ignore
-        metadata: {
+      if (session.metadata && 'adults' in session.metadata) {
+        const {
           adults,
           checkinDate,
           checkoutDate,
@@ -40,28 +40,31 @@ export async function POST(req: Request, res: Response) {
           user,
           discount,
           totalPrice,
-        },
-      } = session;
+        } = session.metadata;
 
-      await createBooking({
-        adults: Number(adults),
-        checkinDate,
-        checkoutDate,
-        children: Number(children),
-        hotelRoom,
-        numberOfDays: Number(numberOfDays),
-        discount: Number(discount),
-        totalPrice: Number(totalPrice),
-        user,
-      });
+        await createBooking({
+          adults: Number(adults),
+          checkinDate,
+          checkoutDate,
+          children: Number(children),
+          hotelRoom,
+          numberOfDays: Number(numberOfDays),
+          discount: Number(discount),
+          totalPrice: Number(totalPrice),
+          user,
+        });
 
-      //   Update hotel Room
-      await updateHotelRoom(hotelRoom);
+        //   Update hotel Room
+        await updateHotelRoom(hotelRoom);
 
-      return NextResponse.json('Booking successful', {
-        status: 200,
-        statusText: 'Booking Successful',
-      });
+        return NextResponse.json('Booking successful', {
+          status: 200,
+          statusText: 'Booking Successful',
+        });
+      } else {
+        console.error('Metadata or required properties are missing.');
+        return NextResponse.json('Invalid request', { status: 400 });
+      }
 
     default:
       console.log(`Unhandled event type ${event.type}`);
